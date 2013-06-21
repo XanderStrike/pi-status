@@ -8,9 +8,11 @@
 
 require 'sinatra'
 
+["3:49", "1 user", "load average: 0.17", "0.08", "0.06 "] 
+
 def getgen
   output = `uptime`.gsub(/\s+/m, ' ').split("up ").last.split(", ")
-  results = {uptime: output[0], since: output[1], users: output[2].to_i}
+  results = {uptime: output[0], users: output[1].split(" ").first}
 end
 
 def getmem
