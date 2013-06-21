@@ -19,6 +19,8 @@ def getdrives
   results = {name: output[0], total: output[1], used: output[2], free: output[3], percent: output[4]}
 end
 
+set :port, 80
+set :bind, '0.0.0.0'
 
 get '/' do
   cpu = getcpu
