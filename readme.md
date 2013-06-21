@@ -43,6 +43,6 @@ You're done!
 
 ####Notes
 
-There are many other web based system monitors for the Pi out there already, most not requiring anything as heavy as Ruby. I only decided to go with Sinatra because I'm already using RoR on my Pi to host a few other personal projects, and I much more familiar with Ruby. This could be useful for anyone who's already got a Ruby environment on their Pi, but if you don't you'd probably be better off looking elsewhere. As this is a personal project, I don't suspect anyone will be contributing, but if you'd like to just shoot me a pull request.
+There are many other web based system monitors for the Pi out there already, most not requiring anything as heavy as Ruby (see [Ground Control](https://github.com/jondot/groundcontrol)). I only decided to go with Sinatra because I'm already using RoR on my Pi to host a few other personal projects, and I much more familiar with Ruby. This could be useful for anyone who's already got a Ruby environment on their Pi, but if you don't you'd probably be better off looking elsewhere. As this is a personal project, I don't suspect anyone will be contributing, but if you'd like to just shoot me a pull request.
 
 **License**: [MIT](http://opensource.org/licenses/MIT)
