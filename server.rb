@@ -1,20 +1,17 @@
 require 'sinatra'
 
 def getmem
-  output = `free -m`
-  output = output.gsub(/\s+/m, ' ').strip.split(' ')
+  output = `free -m`.gsub(/\s+/m, ' ').strip.split(' ')
   results = {total: output[7], used: output[8], free: output[9], swaptotal: output[18], swapused: output[19], swapfree: output[20]}
 end
 
 #requires sysstat
 def getcpu
-  output = `mpstat`
-  output = output.split("\n").last.gsub(/\s+/m, ' ').strip.split(' ').last
+  output = `mpstat`.split("\n").last.gsub(/\s+/m, ' ').strip.split(' ').last
   results = {used: '%.2f' % (100 - output.to_f), free: output}
 end
 
 def getdrives
-  # ouput = `df -h`
   output = `df -h`.split("\n")[1].gsub(/\s+/m, ' ').strip.split(' ')
   results = {name: output[0], total: output[1], used: output[2], free: output[3], percent: output[4]}
 end
