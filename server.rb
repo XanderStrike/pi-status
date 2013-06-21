@@ -14,7 +14,7 @@ end
 def getcpu
   mpstat = `mpstat`.split("\n").last.gsub(/\s+/m, ' ').strip.split(' ').last
   temp = `/opt/vc/bin/vcgencmd measure_temp`.split("=").last.chomp
-  results = {used: '%.2f' % (100 - output.to_f), free: output, temp: temp}
+  results = {used: '%.2f' % (100 - mpstat.to_f), free: mpstat, temp: temp}
 end
 
 def getdrives
