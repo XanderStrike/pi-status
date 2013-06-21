@@ -1,3 +1,11 @@
+#server.rb
+# Simple System Info for Raspberry Pi
+
+# Written by Alex Standke <xanderstrike@gmail.com>
+#   https://github.com/XanderStrike/pi-status
+
+# License: MIT
+
 require 'sinatra'
 
 def getgen
@@ -10,7 +18,6 @@ def getmem
   results = {total: output[7], used: output[8], free: output[9], swaptotal: output[18], swapused: output[19], swapfree: output[20]}
 end
 
-#requires sysstat
 def getcpu
   mpstat = `mpstat`.split("\n").last.gsub(/\s+/m, ' ').strip.split(' ').last
   temp = `/opt/vc/bin/vcgencmd measure_temp`.split("=").last.chomp
@@ -36,7 +43,7 @@ get '/' do
   hd = getdrives
   @output = []
   @output << "<b>GENERAL</b><br>Uptime: #{gen[:uptime]}<br>Users: #{gen[:users]}<br>IP: #{getip}"
-  @output << "<b>CPU</b><br>Used: #{cpu[:used]}%<br>Temp: #{cpu[:temp]}}"
+  @output << "<b>CPU</b><br>Used: #{cpu[:used]}%<br>Temp: #{cpu[:temp]}"
   @output << "<b>RAM</b><br>Used: #{mem[:used]}mb<br>Free:  #{mem[:free]}mb<br>Total: #{mem[:total]}mb"
   @output << "<b>SWAP</b><br>Used: #{mem[:swapused]}mb<br> Free: #{mem[:swapfree]}mb<br> Total: #{mem[:swaptotal]}mb"
   @output << "<b>DRIVES</b><br>Name: #{hd[:name]}<br>Free: #{hd[:free].downcase}b<br>Used: #{hd[:used].downcase}b (#{hd[:percent]})<br>Total: #{hd[:total].downcase}b"
