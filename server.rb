@@ -25,10 +25,10 @@ get '/' do
   mem = getmem
   hd = getdrives
   @output = []
-  @output << "<b>CPU</b><br>Used: #{cpu[:used]}<br>Free: #{cpu[:free]}"
+  @output << "<b>CPU</b><br>Used: #{cpu[:used]}%"
   @output << "<b>RAM</b><br>Used: #{mem[:used]}mb<br>Free:  #{mem[:free]}mb<br>Total: #{mem[:total]}mb"
   @output << "<b>SWAP</b><br>Used: #{mem[:swapused]}mb<br> Free: #{mem[:swapfree]}mb<br> Total: #{mem[:swaptotal]}mb"
-  @output << "<b>DRIVES</b><br>Name: #{hd[:name]}<br>Free: #{hd[:free]}<br>Used: #{hd[:used]} (#{hd[:percent]})<br>Total: #{hd[:total]}"
+  @output << "<b>DRIVES</b><br>Name: #{hd[:name]}<br>Free: #{hd[:free].downcase}b<br>Used: #{hd[:used].downcase}b (#{hd[:percent]})<br>Total: #{hd[:total].downcase}b"
   @output.join("<br>")
   erb :index
 end
