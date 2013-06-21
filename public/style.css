@@ -1,0 +1,16 @@
+body {
+  margin:0px 0px 0px 0px;
+}
+
+#main {
+  background:url(bg.jpg);
+  background-size:cover;
+  background-position:center center;
+}
+
+.inner {
+  background: rgba(0,0,0,0.2) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=) repeat;
+  padding:10px 10px;
+  color:#eee;
+  min-height: calc(100% - 20px);
+}
